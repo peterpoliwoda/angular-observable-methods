@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Book } from './book';
-import {Observable} from "rxjs/index";
+import { Observable } from 'rxjs/index';
 
 @Injectable()
 export class BookService {
-    bookUrl = "/api/books";	
+    bookUrl = '/api/books';	
 
 	constructor(private http: HttpClient) { }
 
@@ -13,9 +13,9 @@ export class BookService {
         return this.http.get<Book[]>(this.bookUrl);
     }
     getFavBookFromStore(id: number): Observable<Book> {
-        return this.http.get<Book>(this.bookUrl + "/" + id);
+        return this.http.get<Book>(this.bookUrl + '/' + id);
     }    
     getBooksByCategoryFromStore(category: string): Observable<Book[]> {
-        return this.http.get<Book[]>(this.bookUrl + "?category=" + category);
+        return this.http.get<Book[]>(this.bookUrl + '?category=' + category);
     }        
 }
